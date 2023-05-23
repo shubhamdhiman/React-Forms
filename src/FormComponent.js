@@ -6,7 +6,10 @@ const FormComponent = () => {
     lastName: "",
     password: "",
     isActive: false,
+    selectedRadio:"Male",
   });
+
+
   const onHandleChangeInput = (e) => {
     //setUserInfo({ ...userInfo, [key]: e.target.value });
     // we can do one more thing, we can use the name attribute of <input> tag.
@@ -17,7 +20,7 @@ const FormComponent = () => {
   };
   return (
     <div>
-      <h2 className="my-4 ">React Form</h2>
+      <div className="text-center"><h1 className="my-4 ">React Form</h1></div>
       <form className="d-flex flex-column align-items-center">
         <input
           name="firstName"
@@ -43,7 +46,7 @@ const FormComponent = () => {
           className="form-control w-50 my-2"
           value={userInfo.password}
         ></input>
-        <div className="form-check text-left mb-4 mt-2">
+        <div className="form-check text-left mb-2 mt-2">
           <input
             className="form-check-input"
             type="checkbox"
@@ -54,6 +57,42 @@ const FormComponent = () => {
           />
           <label className="form-check-label" htmlFor="flexCheckDefault">
             Default checkbox
+          </label>
+        </div>
+
+        {/* Radio */}
+        <div class="d-flex mb-4 ">
+          <label>
+            <input
+              type="radio"
+              value="Male"
+              name="selectedRadio"
+              checked={userInfo.selectedRadio === "Male"}
+              onChange={(e) => onHandleChangeInput(e)}
+            />
+            {" "}Male
+          </label>
+          <br />
+          <label class="mx-4">
+            <input
+              type="radio"
+              value="Female"
+              name="selectedRadio"
+              checked={userInfo.selectedRadio === "Female"}
+              onChange={(e) => onHandleChangeInput(e)}
+            />
+            {" "} Female
+          </label>
+          <br />
+          <label>
+            <input
+              type="radio"
+              value="other"
+              name="selectedRadio"
+              checked={userInfo.selectedRadio === "other"}
+              onChange={(e) => onHandleChangeInput(e)}
+            />
+            {" "} Other
           </label>
         </div>
       </form>
